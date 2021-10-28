@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const useFirebase = () => {
-    return (
-        <div>
+    const [user, setUser] = useState({});
 
-        </div>
-    )
+    const auth = getAuth();
+
+    return {
+        user
+    }
 }
 
 export default useFirebase
