@@ -1,14 +1,20 @@
-import React, { createContext } from 'react'
+import React, { createContext } from 'react';
+import useDoctor from '../hooks/useDoctor';
 import useFirebase from '../hooks/useFirebase';
+import useService from '../hooks/useService';
 
 export const Context = createContext();
+
 const AuthContext = ({ children }) => {
-    const allUser = useFirebase();
+    const allContext = useFirebase();
+    const allServices = useService();
+    const allDoctors = useDoctor();
+
     return (
-        <Context.Provider value={{ allUser }}>
+        <Context.Provider value={{ allContext, allServices, allDoctors }} >
             {children}
-        </Context.Provider>
+        </Context.Provider >
     )
 }
 
-export default AuthContext
+export default AuthContext;

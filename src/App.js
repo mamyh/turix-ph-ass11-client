@@ -1,33 +1,47 @@
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import AuthContext from "./AuthContext/AuthContext";
+import About from "./pages/about/About";
 
-import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact';
-import Login from './pages/Login/Login';
-import NotFound from './pages/notFound/NotFound';
-import Register from './pages/Register/Register';
-import Header from './pages/share/Header/Header';
-import Footer from './pages/share/Footer/Footer';
-import AuthContext from './AuthContext/AuthContext';
+import Home from "./pages/Home/Home";
+import Login from "./pages/login/Login";
+import Notfound from "./pages/notFound/Notfound";
+import Register from "./pages/Register/Register";
+
+import Footer from "./pages/shared/Footer/Footer";
+import Header from "./pages/shared/Header/Header";
+
+
 
 function App() {
+
   return (
     <AuthContext>
       <BrowserRouter>
         <Header></Header>
         <Switch>
-          <Route exact path="/" component={Home}></Route>
-          <Route path="/home" component={Home}></Route>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
           <Route path="/about" component={About}></Route>
-          <Route path="/contact" component={Contact}></Route>
-          <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Register}></Route>
-          <Route path="*" component={NotFound}></Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
+          </Route>
+
+
+
+          <Route path="*">
+            <Notfound></Notfound>
+          </Route>
         </Switch>
         <Footer></Footer>
       </BrowserRouter>
-    </AuthContext>
+    </AuthContext >
   );
 }
 

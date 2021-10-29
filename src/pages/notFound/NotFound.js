@@ -1,15 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-const NotFound = () => {
+const Notfound = () => {
     return (
-        <div>
-            <h1>404! the page you are searching is not found </h1>
-            <Link to="/">
-                Home
-            </Link>
+        <div className="h-screen md:flex items-center justify-center">
+            <div>
+                <h1>404! page you are looking for is not found</h1>
+                <div className="mt-8">
+                    <Link className="px-8 bg-yellow-50" to="/">Home</Link>
+                </div>
+            </div>
         </div>
     )
 }
 
-export default NotFound
+export default Notfound;

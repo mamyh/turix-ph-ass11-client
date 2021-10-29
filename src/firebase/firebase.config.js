@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBSE_APIKEY,
-    authDomain: process.env.REACT_APP_FIREBSE_AUTHDOMAIN,
-    projectId: process.env.REACT_APP_FIREBSE_PROJECTID,
-    storageBucket: process.env.REACT_APP_FIREBSE_STORAGEBUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBSE_MESSAGINGSENDERID,
-    appId: process.env.REACT_APP_FIREBSE_APPID
+    apiKey: "AIzaSyDTIz8Vp9Sqt9qtdfgYumZw-r6YJ9DwPgY",
+    authDomain: "travelnow-91709.firebaseapp.com",
+    projectId: "travelnow-91709",
+    storageBucket: "travelnow-91709.appspot.com",
+    messagingSenderId: "161637764201",
+    appId: "1:161637764201:web:26bc3467a0be8974baa6f8"
 };
 
 export default firebaseConfig;
