@@ -25,16 +25,29 @@ const NavLink = ({ myClass = null }) => {
 
             {user.email ? <>
                 <Link
-                    to="/doctors"
+                    to="/manage-all-trips"
                     className={myModifiedClass}
                 >
-                    Our Doctors
+                    Manage Orders
                 </Link>
                 <Link
-                    to="/services"
+                    to="/addpakage"
                     className={myModifiedClass}
                 >
-                    Our services
+                    Add Pakage
+                </Link>
+                <Link
+                    to="/your-trips"
+                    className={myModifiedClass}
+                >
+                    Your pakage orders
+                </Link>
+
+                <Link
+                    to="/trips"
+                    className={myModifiedClass}
+                >
+                    Our pakages
                 </Link>
                 <Link
                     to="/"

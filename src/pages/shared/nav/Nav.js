@@ -14,8 +14,8 @@ function Nav() {
                         <div className="flex flex-auto items-center">
                             <div className="flex-shrink-0">
                                 <img
-                                    className="h-8 w-8"
-                                    src="https://i.fbcd.co/products/resized/resized-750-500/be85cc684b308f4c15eb024f2dfdf16a59a157c4f947c60a30e6c6a187765107.webp"
+                                    className="bg-white h-8 w-16"
+                                    src={require(`./../../../iamges/logo.png`).default}
                                     alt="Workflow"
                                 />
                             </div>
