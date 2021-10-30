@@ -12,6 +12,7 @@ import Header from "./pages/shared/Header/Header";
 import Trips from "./pages/Trips/Trips";
 import YourTrips from "./pages/Your-trips/YourTrips";
 import PrivateRoute from "./privateRoute/PrivateRoute";
+import TripDetails from "./pages/Trips/TripDetails/TripDetails";
 
 
 
@@ -33,12 +34,15 @@ function App() {
             <Route path="/login" component={Login}>
 
             </Route>
-            <Route path="/trips" component={Trips}></Route>
+            <Route exact path="/trips" component={Trips}></Route>
 
             {/* private routes are stared here  */}
 
             <PrivateRoute path="/manage-all-trips">
               <ManageOrders></ManageOrders>
+            </PrivateRoute>
+            <PrivateRoute path="/trips/:id">
+              <TripDetails></TripDetails>
             </PrivateRoute>
             <PrivateRoute path="/your-trips">
               <YourTrips></YourTrips>

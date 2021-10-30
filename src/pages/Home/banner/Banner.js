@@ -4,14 +4,13 @@ import "./banner.css";
 
 const Banner = () => {
     return (
-        <div className=" h-96 md:h-screen">
+        <div className=" h-96 ">
             <div className=" w-full h-1/2 md:h-5/6   custom-banner block md:flex justify-center items-center text-center">
                 <div className="md:w-1/2 w-screen py-8 md:py-0" >
                     <h1 className="text-3xl font-bold text-white">Safari Trip in Indonesia <span className="block" >With George</span></h1>
 
                     <div className="my-8 w-screen md:w-full space-x-8">
                         <Link className=" inline-block rounded-lg border-2 bg-transparent border-current text-white w-1/4" to="/trips">Our trips</Link>
-                        <Link className=" inline-block rounded-lg  bg-yellow-400  text-white w-1/4" to="/doctors">Our Doctors</Link>
 
                     </div>
 
