@@ -1,12 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Spinner from '../../spiner/Spinner';
 import Trip from './trip/Trip';
 
 const Trips = () => {
-    const [pakages, setPakages] = useState([])
+    const [pakages, setPakages] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
-        axios.get(`https://quiet-wave-83904.herokuapp.com/pakages`).then(res => setPakages(res.data))
-    }, [])
+        axios.get(`https://quiet-wave-83904.herokuapp.com/pakages`).then(res => { setPakages(res.data); setIsLoading(false) });
+    }, []);
+    if (isLoading) {
+        return <Spinner></Spinner>
+    }
     return (
         <div className=" md:py-16 w-full md:flex items-center justify-center ">
             <div className="w-5/6">

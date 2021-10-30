@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Trip = ({ pakage }) => {
+const YourTrip = ({ pakage }) => {
     const { _id, name, price, date, rating, img } = pakage;
 
 
@@ -27,4 +27,4 @@ const Trip = ({ pakage }) => {
     )
 }
 
-export default Trip
+export default YourTrip;

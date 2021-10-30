@@ -1,14 +1,31 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
+import Spinner from '../../../spiner/Spinner';
 
 const TripDetails = () => {
-    const [pakage, setPakage] = useState({})
+    const [pakage, setPakage] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+    const { allContext } = useAuth();
+    const { user } = allContext;
     const { id } = useParams();
     useEffect(() => {
-        axios.get(`https://quiet-wave-83904.herokuapp.com/pakages/${id}`).then(res => setPakage(res.data));
+        axios.get(`https://quiet-wave-83904.herokuapp.com/pakages/${id}`).then(res => { setPakage(res.data); setIsLoading(false) });
     }, []);
-    const { name, price, date, img, rating } = pakage;
+    const handleBook = () => {
+        pakage.email = user.email;
+        pakage.status = 'pending';
+        axios.post(`https://quiet-wave-83904.herokuapp.com/orders`, pakage).then(res => {
+            if (res.data.insertedId) {
+                alert('Your orders are pending');
+            }
+        })
+    }
+    if (isLoading) {
+        return (<Spinner></Spinner>)
+    }
+    const { _id, name, price, date, img, rating } = pakage;
     return (
         <div className="h-screen md:flex items-center justify-center">
             <div className="bg-white w-3/5 hover:shadow-lg space-x-4 rounded-md flex">
@@ -23,6 +40,9 @@ const TripDetails = () => {
                     </div>
                     <div className=" flex-none text-xl text-gray-600 font-semibold">
                         {date}days /{+date + 1} nights
+                        <div className="mt-8">
+                            <button type="button" onClick={handleBook} className="text-xl text-white bg-yellow-600 inline-block px-8 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" to={`/trips/${_id}`}>Book</button>
+                        </div>
                     </div>
                 </div>
 
