@@ -1,14 +1,12 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AuthContext from "./AuthContext/AuthContext";
-import About from "./pages/about/About";
 import AddPakage from "./pages/AddPakage/AddPakage";
-
+import About from './pages/About/About';
 import Home from "./pages/Home/Home";
-import Login from "./pages/login/Login";
-import ManageOrders from "./pages/ManageOrder/ManageOrders";
-import Notfound from "./pages/notFound/Notfound";
-import Register from "./pages/Register/Register";
 
+import ManageOrders from "./pages/ManageOrder/ManageOrders";
+import Notfound from "./pages/notFound/NotFound";
+import Login from './pages/Login/Login';
 import Footer from "./pages/shared/Footer/Footer";
 import Header from "./pages/shared/Header/Header";
 import Trips from "./pages/Trips/Trips";
@@ -32,17 +30,13 @@ function App() {
               <Home></Home>
             </Route>
             <Route path="/about" component={About}></Route>
-            <Route path="/login">
-              <Login></Login>
+            <Route path="/login" component={Login}>
+
             </Route>
-            <Route path="/register">
-              <Register></Register>
-            </Route>
+            <Route path="/trips" component={Trips}></Route>
 
             {/* private routes are stared here  */}
-            <PrivateRoute path="/trips">
-              <Trips></Trips>
-            </PrivateRoute>
+
             <PrivateRoute path="/manage-all-trips">
               <ManageOrders></ManageOrders>
             </PrivateRoute>

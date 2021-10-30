@@ -22,6 +22,12 @@ const NavLink = ({ myClass = null }) => {
             >
                 About
             </Link>
+            <Link
+                to="/trips"
+                className={myModifiedClass}
+            >
+                Our pakages
+            </Link>
 
             {user.email ? <>
                 <Link
@@ -43,12 +49,7 @@ const NavLink = ({ myClass = null }) => {
                     Your pakage orders
                 </Link>
 
-                <Link
-                    to="/trips"
-                    className={myModifiedClass}
-                >
-                    Our pakages
-                </Link>
+
                 <Link
                     to="/"
                     className={myModifiedClass}
@@ -62,12 +63,7 @@ const NavLink = ({ myClass = null }) => {
             >
                 login
             </Link>
-                <Link
-                    to="/register"
-                    className={myModifiedClass}
-                >
-                    Sign up
-                </Link></>}
+            </>}
 
             {/* <Link
                 to="/departments"
