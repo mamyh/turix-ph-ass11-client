@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import Spinner from '../../../spiner/Spinner';
 
 const TripDetails = () => {
     const [pakage, setPakage] = useState({});
+    const history = useHistory();
     const [isLoading, setIsLoading] = useState(true);
     const { allContext } = useAuth();
     const { user } = allContext;
@@ -14,11 +15,14 @@ const TripDetails = () => {
         axios.get(`https://quiet-wave-83904.herokuapp.com/pakages/${id}`).then(res => { setPakage(res.data); setIsLoading(false) });
     }, []);
     const handleBook = () => {
-        pakage.email = user.email;
-        pakage.status = 'pending';
-        axios.post(`https://quiet-wave-83904.herokuapp.com/orders`, pakage).then(res => {
+        const { _id, ...data } = pakage;
+        data.email = user.email;
+        data.status = 'pending';
+        console.log(data);
+        axios.post(`https://quiet-wave-83904.herokuapp.com/orders`, data).then(res => {
             if (res.data.insertedId) {
                 alert('Your orders are pending');
+                history.push('/your-trips')
             }
         })
     }

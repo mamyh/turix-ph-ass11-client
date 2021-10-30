@@ -46,7 +46,7 @@ const NavLink = ({ myClass = null }) => {
                     to="/your-trips"
                     className={myModifiedClass}
                 >
-                    Your pakage orders
+                    Your orders
                 </Link>
 
 
