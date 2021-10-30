@@ -7,12 +7,11 @@ import Order from './order/Order';
 
 const ManageOrders = () => {
     const [orders, setOrders] = useState([])
-    const { allContext } = useAuth();
-    const { user } = allContext;
+
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const email = user.email;
+
         axios.get(`https://quiet-wave-83904.herokuapp.com/orders`).then(res => { setOrders(res.data); setIsLoading(false) });
     }, []);
     if (isLoading) {
