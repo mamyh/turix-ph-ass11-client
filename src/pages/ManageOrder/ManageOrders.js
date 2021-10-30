@@ -7,7 +7,6 @@ import Order from './order/Order';
 
 const ManageOrders = () => {
     const [orders, setOrders] = useState([])
-
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
