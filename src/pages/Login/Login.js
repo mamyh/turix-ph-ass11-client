@@ -32,7 +32,7 @@ const Login = () => {
                 <h1 className="pb-8"> Please Login </h1 >
 
 
-                <button onClick={handleLogin} className="bg-green-300 block px-3 my-4 text-white font-semibold rounded-md">Login with Google</button>
+                <button onClick={handleLogin} className="bg-green-300 block px-3 my-4 text-white font-semibold rounded-md"><i className="fab fa-google"></i>  Login with Google</button>
                 {/* <button>Login with github</button> */}
 
 

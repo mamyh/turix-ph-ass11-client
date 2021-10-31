@@ -54,9 +54,9 @@ const NavLink = ({ myClass = null }) => {
                     to="/"
                     className={myModifiedClass}
                 >
-                    {user.displayName}
+                    <i className="fas fa-user"></i>   {user.displayName}
                 </Link>
-                <button onClick={logOut} className={myModifiedClass}>Logout</button>
+                <button onClick={logOut} className={myModifiedClass}><i className="fas fa-sign-out-alt"></i></button>
             </> : <> <Link
                 to="/login"
                 className={myModifiedClass}

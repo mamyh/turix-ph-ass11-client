@@ -31,8 +31,8 @@ const OrderDetails = () => {
                 <div className=" flex-auto flex justify-between my-8 pr-4 ">
                     <div className=" flex-auto space-y-4">
                         <h1 className="text-xl text-gray-600 font-semibold">${price}/per person</h1>
-                        <h1 className="text-2xl font-bold text-yellow-500">{name}</h1>
-                        <p className="text-xl text-gray-600 font-semibold">{rating}k+Rating</p>
+                        <h1 className="text-2xl font-bold text-yellow-500"><i className="fas fa-map-marker-alt"></i> {name}</h1>
+                        <p className="text-xl text-gray-600 font-semibold"><i className="fas fa-star"></i> {rating}k+Rating</p>
                     </div>
                     <div className=" flex-none text-xl text-gray-600 font-semibold">
                         {date}days /{+date + 1} nights

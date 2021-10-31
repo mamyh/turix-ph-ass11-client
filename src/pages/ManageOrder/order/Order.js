@@ -17,13 +17,13 @@ const Order = ({ order, handleDelete, updateStatus }) => {
                         <p >{date}days/{+date + 1}nights</p>
 
                     </div>
-                    <h1>Orders Person: <span className="text-grey-600 font-bold">{email}</span></h1>
-                    <h1 className="text-2xl font-bold text-yellow-500">{name}</h1>
+                    <h1><i className="fas fa-envelope">   </i><span className="text-grey-600 font-bold">{`  ${email}`}</span></h1>
+                    <h1 className="text-2xl font-bold text-yellow-500"><i className="fas fa-map-marker-alt"></i> {name}</h1>
 
                 </div>
             </div>
             <div className="mx-3 flex justify-between">
-                <p className="text-xl text-gray-600 font-semibold">{rating}k+Rating</p>
+                <p className="text-xl text-gray-600 font-semibold"><i className="fas fa-star"></i> {rating}k+Rating</p>
                 <p className={status === 'pending' ? 'bg-yellow-200 px-4 rounded-lg ' : 'bg-green-200 px-4 rounded-lg text-black '}>{status}</p>
             </div>
             <div className="text-center my-8 space-x-4">

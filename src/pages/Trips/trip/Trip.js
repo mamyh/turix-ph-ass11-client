@@ -13,8 +13,8 @@ const Trip = ({ pakage }) => {
             <div className="flex justify-between my-8 px-4">
                 <div className="space-y-4">
                     <h1 className="text-xl text-gray-600 font-semibold">${price}/per person</h1>
-                    <h1 className="text-2xl font-bold text-yellow-500">{name}</h1>
-                    <p className="text-xl text-gray-600 font-semibold">{rating}k+Rating</p>
+                    <h1 className="text-2xl font-bold text-yellow-500"><i className="fas fa-map-marker-alt"></i> {name}</h1>
+                    <p className="text-xl text-gray-600 font-semibold"><i className="fas fa-star"></i> {rating}k+Rating</p>
                 </div>
                 <div className="text-xl text-gray-600 font-semibold">
                     {date}days /{+date + 1} nights
