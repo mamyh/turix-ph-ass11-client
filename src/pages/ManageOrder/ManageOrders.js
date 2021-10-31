@@ -12,18 +12,31 @@ const ManageOrders = () => {
 
     useEffect(() => {
 
-        axios.get(`https://quiet-wave-83904.herokuapp.com/orders`).then(res => { setOrders(res.data); setCount(orders.length); setIsLoading(false) });
-    }, []);
+        axios.get(`https://quiet-wave-83904.herokuapp.com/orders`).then(res => { setOrders(res.data); setIsLoading(false) }).finally(() => setCount(orders.length))
+    }, [count]);
+    const handleDelete = (id) => {
+
+        const url = `https://quiet-wave-83904.herokuapp.com/orders/${id}`;
+        const confimation = window.confirm('Are you sure you want to delete your order?');
+        if (confimation) {
+            axios.delete(url).then(res => {
+                if (res.data.deletedCount) {
+                    alert('your order delete successfully');
+                    setCount(orders.length);
+                }
+            });
+        }
+    }
     if (isLoading) {
         return <Spinner></Spinner>
     }
-
+    console.log(count);
     return (
-        <div className={count ? 'h-auto md:py-16 w-full md:flex items-center justify-center ' : "h-screen md:py-16 w-full md:flex items-center justify-center "}>
+        <div className={orders.length ? 'h-auto md:py-16 w-full md:flex items-center justify-center ' : "h-screen md:py-16 w-full md:flex items-center justify-center "}>
             <div className="w-5/6">
                 <h1 className="text-center text-2xl text-yellow-600 font-bold my-8 border-current border-b pb-2 inline-block">{count ? 'You have no order to manage' : 'Manage orders'}</h1>
                 <div className="md:grid grid-cols-3 gap-6">
-                    {orders.map(order => <Order key={order._id} order={order} ></Order>)}
+                    {orders.map(order => <Order key={order._id} order={order} handleDelete={handleDelete} ></Order>)}
                 </div>
             </div>
         </div>

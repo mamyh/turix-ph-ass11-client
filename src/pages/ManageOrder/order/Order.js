@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Order = ({ order }) => {
+const Order = ({ order, handleDelete }) => {
     const { _id, name, price, email, date, status, rating, img } = order;
 
 
@@ -22,8 +22,10 @@ const Order = ({ order }) => {
                     <p className={status === 'pending' ? 'bg-yellow-400 text-white ' : 'bg-green-400 text-black '}>{status}</p>
                 </div>
             </div>
-            <div className="text-center mb-8">
-                <Link className="text-xl text-white bg-yellow-600 inline-block w-1/3 p-2 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" to={`/order/${_id}`}>Details</Link>
+            <div className="text-center mb-8 space-x-4">
+                <Link className="text-xl bg-green-200 inline-block w-1/3 p-2 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" to={`/order/edit`}>Edit</Link>
+                <button className="text-xl bg-red-200 inline-block w-1/3 p-2 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" type="button" onClick={() => handleDelete(_id)}>Delete</button>
+
             </div>
         </div>
     )

@@ -35,7 +35,7 @@ const YourTrips = () => {
     }
     console.log(count);
     return (
-        <div className={!count ? `h-screen md:py-16 w-full md:flex items-center justify-center` : `h-auto md:py-16 w-full md:flex items-center justify-center `}>
+        <div className={!pakages.length ? `h-screen md:py-16 w-full md:flex items-center justify-center` : `h-auto md:py-16 w-full md:flex items-center justify-center `}>
             <div className="w-5/6">
                 <h1 className="text-center text-2xl text-yellow-600 font-bold my-8 border-current border-b pb-2 inline-block">{count ? 'Your trips' : `you have no trips`}</h1>
                 <div className="md:grid grid-cols-3 gap-6">
