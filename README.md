@@ -1,20 +1,25 @@
 #`My () care React application `
  
- live demo is [link]
-
+ live server site  demo is [server-link]https://quiet-wave-83904.herokuapp.com/
+ live server code [server-code]https://github.com/programming-hero-web-course1/tourism-or-delivery-website-server-side-mamyh
 ------------------------------
  #`used technology `
 -----------------------------
  - firebase authentication 
      - with Google account 
-     - with email password
+    
 - context api
-- Retrive data from a json file 
+- connection client site with mongodb (server site )
+- Retrive data from server site
+- data add
+- data edit
+- data delete
 - custom hooks
 - private route 
 - page redirect 
 - responsive design 
 - tailwind css 
+- adding spinner 
 
 ---------------------------------------------------
 ##'learnig'

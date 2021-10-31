@@ -15,7 +15,7 @@ import PrivateRoute from "./privateRoute/PrivateRoute";
 import TripDetails from "./pages/Trips/TripDetails/TripDetails";
 
 import OrderDetails from "./pages/ManageOrder/OrderDetails/OrderDetails";
-import EditOrder from "./pages/ManageOrder/EditOrder/EditOrder";
+
 
 
 
@@ -47,12 +47,11 @@ function App() {
             <PrivateRoute path="/trips/:id">
               <TripDetails></TripDetails>
             </PrivateRoute>
+
             <PrivateRoute path="/order/:id">
               <OrderDetails></OrderDetails>
             </PrivateRoute>
-            <PrivateRoute path="/order/edit/:id">
-              <EditOrder></EditOrder>
-            </PrivateRoute>
+
             <PrivateRoute path="/your-trips">
               <YourTrips></YourTrips>
             </PrivateRoute>

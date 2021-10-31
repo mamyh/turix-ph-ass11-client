@@ -14,6 +14,16 @@ const ManageOrders = () => {
 
         axios.get(`https://quiet-wave-83904.herokuapp.com/orders`).then(res => { setOrders(res.data); setIsLoading(false) }).finally(() => setCount(orders.length))
     }, [count]);
+    const updateStatus = (id) => {
+        const data = {};
+        data.status = 'approved';
+        axios.put(`https://quiet-wave-83904.herokuapp.com/orders/${id}`, data).then(res => {
+            if (res.data.modifiedCount) {
+                alert('your orders is approved!')
+                setCount(count + 1);
+            }
+        });
+    }
     const handleDelete = (id) => {
 
         const url = `https://quiet-wave-83904.herokuapp.com/orders/${id}`;
@@ -30,13 +40,13 @@ const ManageOrders = () => {
     if (isLoading) {
         return <Spinner></Spinner>
     }
-    console.log(count);
+
     return (
         <div className={orders.length ? 'h-auto md:py-16 w-full md:flex items-center justify-center ' : "h-screen md:py-16 w-full md:flex items-center justify-center "}>
             <div className="w-5/6">
-                <h1 className="text-center text-2xl text-yellow-600 font-bold my-8 border-current border-b pb-2 inline-block">{count ? 'You have no order to manage' : 'Manage orders'}</h1>
+                <h1 className="text-center text-2xl text-yellow-600 font-bold my-8 border-current border-b pb-2 inline-block">{!orders.length ? 'You have no order to manage' : 'Manage orders'}</h1>
                 <div className="md:grid grid-cols-3 gap-6">
-                    {orders.map(order => <Order key={order._id} order={order} handleDelete={handleDelete} ></Order>)}
+                    {orders.map(order => <Order key={order._id} order={order} handleDelete={handleDelete} updateStatus={updateStatus}></Order>)}
                 </div>
             </div>
         </div>
