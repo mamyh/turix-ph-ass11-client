@@ -19,11 +19,11 @@ const Order = ({ order, handleDelete }) => {
                 </div>
                 <div className="text-xl text-gray-600 font-semibold space-y-16 pl-4 text-center">
                     <p >{date}days/{+date + 1}nights</p>
-                    <p className={status === 'pending' ? 'bg-yellow-400 text-white ' : 'bg-green-400 text-black '}>{status}</p>
+                    <p className={status === 'pending' ? 'bg-yellow-200 ' : 'bg-green-200 text-black '}>{status}</p>
                 </div>
             </div>
             <div className="text-center mb-8 space-x-4">
-                <Link className="text-xl bg-green-200 inline-block w-1/3 p-2 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" to={`/order/edit`}>Edit</Link>
+                <Link className="text-xl bg-green-200 inline-block w-1/3 p-2 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" to={`/order/edit/${_id}`}>Edit</Link>
                 <button className="text-xl bg-red-200 inline-block w-1/3 p-2 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" type="button" onClick={() => handleDelete(_id)}>Delete</button>
 
             </div>
