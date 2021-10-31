@@ -21,7 +21,7 @@ const Order = ({ order }) => {
                 </div>
             </div>
             <div className="text-center mb-8">
-                <Link className="text-xl text-white bg-yellow-600 inline-block w-1/3 p-2 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" to={`/trips/${_id}`}>Details</Link>
+                <Link className="text-xl text-white bg-yellow-600 inline-block w-1/3 p-2 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" to={`/order/${_id}`}>Details</Link>
             </div>
         </div>
     )

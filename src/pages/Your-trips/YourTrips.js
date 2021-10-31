@@ -6,14 +6,29 @@ import YourTrip from './YourTrip/YourTrip';
 
 const YourTrips = () => {
     const [pakages, setPakages] = useState([]);
+    const [count, setCount] = useState(0)
     const { allContext } = useAuth();
     const { user } = allContext;
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const email = user.email;
-        axios.get(`https://quiet-wave-83904.herokuapp.com/orders/${email}`).then(res => { setPakages(res.data); setIsLoading(false) });
-    }, []);
+        axios.get(`https://quiet-wave-83904.herokuapp.com/orders/email/${email}`).then(res => { setPakages(res.data); setIsLoading(false) });
+    }, [count]);
+
+
+    const handleCancel = (id) => {
+        const url = `https://quiet-wave-83904.herokuapp.com/orders/${id}`;
+        const confimation = window.confirm('Are you sure you want to delete your order?');
+        if (confimation) {
+            axios.delete(url).then(res => {
+                if (res.data.deletedCount) {
+                    alert('your pakage order delete successfully');
+                    setCount(pakages.length);
+                }
+            });
+        }
+    }
     if (isLoading) {
         return <Spinner></Spinner>
     }
@@ -22,7 +37,7 @@ const YourTrips = () => {
             <div className="w-5/6">
                 <h1 className="text-center text-2xl text-yellow-600 font-bold my-8 border-current border-b pb-2 inline-block">Your trips</h1>
                 <div className="md:grid grid-cols-3 gap-6">
-                    {pakages.map(pakage => <YourTrip key={pakage._id} pakage={pakage} ></YourTrip>)}
+                    {pakages.map(pakage => <YourTrip key={pakage._id} pakage={pakage} cancel={handleCancel} ></YourTrip>)}
                 </div>
             </div>
         </div>

@@ -1,42 +1,27 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router';
-import useAuth from '../../../hooks/useAuth';
+import { useParams } from 'react-router';
+
 import Spinner from '../../../spiner/Spinner';
 
-const TripDetails = () => {
-    const [pakage, setPakage] = useState({});
-    const history = useHistory();
+const OrderDetails = () => {
+    const [order, setOrder] = useState({})
+
     const [isLoading, setIsLoading] = useState(true);
-    const { allContext } = useAuth();
-    const { user } = allContext;
+
+
     const { id } = useParams();
     useEffect(() => {
-        axios.get(`https://quiet-wave-83904.herokuapp.com/pakages/${id}`).then(res => { setPakage(res.data); setIsLoading(false) });
+        axios.get(`https://quiet-wave-83904.herokuapp.com/orders/${id}`).then(res => { setOrder(res.data); setIsLoading(false) });
     }, []);
     const handleBook = () => {
 
-        pakage.email = user.email;
-        pakage.status = 'pending';
-        axios.get(`https://quiet-wave-83904.herokuapp.com/orders/count/${id}`).then(res => {
-            if (!res.data) {
-
-                axios.post(`https://quiet-wave-83904.herokuapp.com/orders`, pakage).then(res => {
-                    if (res.data.insertedId) {
-                        alert('Your orders are pending');
-                        history.push('/your-trips');
-                    }
-                });
-            } else {
-                alert('you are already in this pakage.. Please check your pakages');
-                history.push('/your-trips');
-            }
-        });
     }
     if (isLoading) {
         return (<Spinner></Spinner>)
     }
-    const { _id, name, price, date, img, rating } = pakage;
+    const { _id, name, price, date, img, rating } = order;
+    console.log(order)
     return (
         <div className="h-screen md:flex items-center justify-center">
             <div className="bg-white w-3/5 hover:shadow-lg space-x-4 rounded-md flex">
@@ -52,7 +37,7 @@ const TripDetails = () => {
                     <div className=" flex-none text-xl text-gray-600 font-semibold">
                         {date}days /{+date + 1} nights
                         <div className="mt-8">
-                            <button type="button" onClick={handleBook} className="text-xl text-white bg-yellow-600 inline-block px-8 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full" >Book</button>
+                            <button type="button" onClick={handleBook} className="text-xl text-white bg-yellow-600 inline-block px-8 rounded-bl-full rounded-tl-full rounded-br-full rounded-tr-full">Edit</button>
                         </div>
                     </div>
                 </div>
@@ -62,4 +47,4 @@ const TripDetails = () => {
     )
 }
 
-export default TripDetails;
+export default OrderDetails;

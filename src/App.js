@@ -14,6 +14,8 @@ import YourTrips from "./pages/Your-trips/YourTrips";
 import PrivateRoute from "./privateRoute/PrivateRoute";
 import TripDetails from "./pages/Trips/TripDetails/TripDetails";
 
+import OrderDetails from "./pages/ManageOrder/OrderDetails/OrderDetails";
+
 
 
 function App() {
@@ -43,6 +45,12 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/trips/:id">
               <TripDetails></TripDetails>
+            </PrivateRoute>
+            <PrivateRoute path="/order/:id">
+              <OrderDetails></OrderDetails>
+            </PrivateRoute>
+            <PrivateRoute path="/order/edit">
+
             </PrivateRoute>
             <PrivateRoute path="/your-trips">
               <YourTrips></YourTrips>

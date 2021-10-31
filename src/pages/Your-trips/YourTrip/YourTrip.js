@@ -2,17 +2,11 @@ import axios from 'axios';
 import React from 'react';
 
 
-const YourTrip = ({ pakage }) => {
+const YourTrip = ({ pakage, cancel }) => {
+
     const { _id, name, price, date, rating, img } = pakage;
 
-    const handleCancel = () => {
-        const url = `https://quiet-wave-83904.herokuapp.com/orders/${_id}`;
-        axios.delete(url).then(res => {
-            if (res.data.deletedCount) {
-                alert('your pakage order delete successfully');
-            }
-        })
-    }
+
     return (
         <div className="bg-white hover:shadow-lg rounded-md">
             <div className="w-full">
@@ -30,7 +24,7 @@ const YourTrip = ({ pakage }) => {
                 </div>
             </div>
             <div className="text-center mb-8">
-                <button type="button" onClick={handleCancel}>Cancel</button>
+                <button type="button" onClick={() => cancel(_id)}>Cancel</button>
             </div>
         </div>
     )
