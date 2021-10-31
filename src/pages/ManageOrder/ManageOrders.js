@@ -43,7 +43,7 @@ const ManageOrders = () => {
 
     return (
         <div className={orders.length ? 'h-auto md:py-16 w-full md:flex items-center justify-center ' : "h-screen md:py-16 w-full md:flex items-center justify-center "}>
-            <div className="w-5/6">
+            <div className="md:w-5/6">
                 <h1 className="text-center text-2xl text-yellow-600 font-bold my-8 border-current border-b pb-2 inline-block">{!orders.length ? 'You have no order to manage' : 'Manage orders'}</h1>
                 <div className="md:grid grid-cols-3 gap-6">
                     {orders.map(order => <Order key={order._id} order={order} handleDelete={handleDelete} updateStatus={updateStatus}></Order>)}

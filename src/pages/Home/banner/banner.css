@@ -1,5 +1,5 @@
 .custom-banner{
     background-image: url('https://www.tourx-react.egenslab.com/static/media/banner-3.ff884c34.png');
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 }

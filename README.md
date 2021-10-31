@@ -1,4 +1,4 @@
-#`My () care React application `
+#`My Turix client site React application `
  
  live server site  demo is [server-link]https://quiet-wave-83904.herokuapp.com/
  live server code [server-code]https://github.com/programming-hero-web-course1/tourism-or-delivery-website-server-side-mamyh
@@ -6,8 +6,7 @@
  #`used technology `
 -----------------------------
  - firebase authentication 
-     - with Google account 
-    
+     - with Google account    
 - context api
 - connection client site with mongodb (server site )
 - Retrive data from server site

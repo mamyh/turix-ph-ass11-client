@@ -41,9 +41,9 @@ const TripDetails = () => {
     }
     const { _id, name, price, date, img, rating } = pakage;
     return (
-        <div className="h-screen md:flex items-center justify-center">
-            <div className="bg-white w-3/5 hover:shadow-lg space-x-4 rounded-md flex">
-                <div className=" flex-none w-1/2">
+        <div className="h-screen flex items-center justify-center">
+            <div className="bg-white w-full md:w-3/5 hover:shadow-lg space-x-4 rounded-md md:flex">
+                <div className=" flex-none w-full md:w-1/2">
                     <img className="w-full" src={img} alt="pakage " />
                 </div>
                 <div className=" flex-auto flex justify-between my-8 pr-4 ">

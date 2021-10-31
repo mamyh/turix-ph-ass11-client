@@ -8,7 +8,7 @@ const YourTrip = ({ pakage, cancel }) => {
 
 
     return (
-        <div className="bg-white hover:shadow-lg rounded-md">
+        <div className="bg-white hover:shadow-lg rounded-md mb-8">
             <div className="w-full">
                 <img className="w-full" src={img} alt="pakage " />
             </div>

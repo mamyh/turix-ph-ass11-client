@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import "./AddPakage.css";
 
 const AddPakage = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         axios.post(`https://quiet-wave-83904.herokuapp.com/pakages`, data).then(res => {
             if (res.data.insertedId) {
