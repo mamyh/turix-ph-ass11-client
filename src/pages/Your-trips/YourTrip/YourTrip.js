@@ -1,10 +1,10 @@
-import axios from 'axios';
+
 import React from 'react';
 
 
 const YourTrip = ({ pakage, cancel }) => {
 
-    const { _id, name, price, date, rating, img } = pakage;
+    const { _id, name, price, date, rating, status, img } = pakage;
 
 
     return (
@@ -19,8 +19,9 @@ const YourTrip = ({ pakage, cancel }) => {
                     <h1 className="text-2xl font-bold text-yellow-500">{name}</h1>
                     <p className="text-xl text-gray-600 font-semibold">{rating}k+Rating</p>
                 </div>
-                <div className="text-xl text-gray-600 ">
-                    {date}days/{+date + 1}nights
+                <div className="text-xl text-gray-600 space-y-16 pl-4 text-center">
+                    <p >{date}days/{+date + 1}nights</p>
+                    <p className={status === 'pending' ? 'bg-yellow-400 text-white ' : 'bg-green-400 text-black '}>{status}</p>
                 </div>
             </div>
             <div className="text-center mb-8">

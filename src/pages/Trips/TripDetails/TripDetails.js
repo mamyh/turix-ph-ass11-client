@@ -15,14 +15,15 @@ const TripDetails = () => {
         axios.get(`https://quiet-wave-83904.herokuapp.com/pakages/${id}`).then(res => { setPakage(res.data); setIsLoading(false) });
     }, []);
     const handleBook = (id) => {
-
-        pakage.email = user.email;
-        pakage.status = 'pending';
-        axios.get(`https://quiet-wave-83904.herokuapp.com/orders/count?_id=${id}&&email=${user.email}`).then(res => {
+        const { _id, ...data } = pakage;
+        data.pakageId = id;
+        data.email = user.email;
+        data.status = 'pending';
+        axios.get(`https://quiet-wave-83904.herokuapp.com/orders/count?id=${id}&&email=${user.email}`).then(res => {
 
             if (!res.data) {
-                console.log(pakage)
-                axios.post('https://quiet-wave-83904.herokuapp.com/orders', pakage).then(res => {
+
+                axios.post('https://quiet-wave-83904.herokuapp.com/orders/', data).then(res => {
                     console.log(res.data)
                     if (res.data.insertedId) {
                         alert('Your orders are pending');
